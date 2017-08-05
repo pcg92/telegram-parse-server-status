@@ -21,14 +21,14 @@ Parse.Cloud.httpRequest({
 }
 
 function initCheckStatus(){
-Queue.clear(function(error, response) {
-    var job = Queue
-                .createJob(jobName_telegram)
-                .priority('normal')
-                .removeOnComplete(true);
-    Queue.every('3 hours', job);
-    Queue.process(jobName_telegram, checkStatus);
-});
+  Queue.clear(function(error, response) {
+      var job = Queue
+                  .createJob(jobName_telegram)
+                  .priority('normal')
+                  .removeOnComplete(true);
+      Queue.every('3 hours', job);
+      Queue.process(jobName_telegram, checkStatus);
+  });
 }
 
 exports.initCheckStatus = initCheckStatus;
